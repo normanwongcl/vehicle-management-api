@@ -1,0 +1,20 @@
+name: CI/CD
+
+on:
+  pull_request: {}
+  push:
+    branches: [master]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v2.0.0
+
+      - name: setup .net core
+        uses: actions/setup-dotnet@v1.4.0
+        with:
+          dotnet-version: "3.1.x"
+
+      - run: dotnet test

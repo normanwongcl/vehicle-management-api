@@ -2,7 +2,7 @@
 
 Vehicle Management API build using [ApiBoilerPlate.AspNetCore](https://github.com/proudmonkey/ApiBoilerPlate) project template.
 
-## Prerequiste
+## Prerequisite
 
 ```yaml
 .NET Core SDK: 3.1 or higher
@@ -11,7 +11,7 @@ Vehicle Management API build using [ApiBoilerPlate.AspNetCore](https://github.co
   Microsoft.NETCore.App: 3.1.7 or higher
 ```
 
-## Prerequiste install
+## Prerequisite install
 
 Installation instructions for anyone using WSL Ubuntu can be found in this [guide](https://ubuntu.com/blog/creating-cross-platform-applications-with-net-on-ubuntu-on-wsl)
 
@@ -35,13 +35,25 @@ k--kato.docomment: 0.1.18 or higher
 
 ```bash
 # Clone repository
-git clone <thisrepo>
+git clone git@github.com:normanwongcl/vehicle-management-api.git
 
 # Restore dependencies
 dotnet restore
 
-# Test project
-dotnet test
-
 # Run project
+TODO
+```
+
+## Test
+
+Run test by using the dotnet cli
+
+```
+dotnet test
+```
+
+## Deployment
+
+```
+# TODO
 ```
