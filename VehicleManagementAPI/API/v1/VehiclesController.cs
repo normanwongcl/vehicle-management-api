@@ -1,0 +1,43 @@
+using VehicleManagementAPI.Contracts;
+using VehicleManagementAPI.Data;
+using VehicleManagementAPI.Data.Entity;
+using VehicleManagementAPI.DTO.Request;
+using VehicleManagementAPI.DTO.Response;
+using AutoMapper;
+using AutoWrapper.Extensions;
+using AutoWrapper.Wrappers;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
+using System.Collections.Generic;
+using System.Text.Json;
+using System.Threading.Tasks;
+using static Microsoft.AspNetCore.Http.StatusCodes;
+
+namespace VehicleManagementAPI.API.v1
+{
+    [Route("api/v1/[controller]")]
+    [ApiController]
+    public class VehiclesController : ControllerBase
+    {
+        private readonly ILogger<VehiclesController> _logger;
+        private readonly IVehicleManager _vehicleManager;
+        private readonly IMapper _mapper;
+
+        public VehiclesController(IVehicleManager vehicleManager, IMapper mapper, ILogger<VehiclesController> logger)
+        {
+            _vehicleManager = vehicleManager;
+            _mapper = mapper;
+            _logger = logger;
+        }
+
+        [HttpGet]
+        [ProducesResponseType(typeof(IEnumerable<VehicleQueryResponse>), Status200OK)]
+        public async Task<IEnumerable<VehicleQueryResponse>> Get()
+        {
+            var data = await _vehicleManager.GetAllAsync();
+            var vehicles = _mapper.Map<IEnumerable<VehicleQueryResponse>>(data);
+
+            return vehicles;
+        }
+    }
+}

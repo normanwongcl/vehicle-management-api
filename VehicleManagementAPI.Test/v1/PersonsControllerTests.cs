@@ -182,7 +182,7 @@ namespace VehicleManagementAPI.Test.v1
         public async Task PUT_ById_RETURNS_BADREQUEST()
         {
             _controller.ModelState.AddModelError("DateOfBirth", "Required");
-           
+
             var apiException = await Assert.ThrowsAsync<ApiProblemDetailsException>(() => _controller.Put(10, FakeUpdateRequestObject()));
             Assert.Equal(422, apiException.StatusCode);
         }

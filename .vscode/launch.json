@@ -1,0 +1,19 @@
+{
+    "configurations": [
+        {
+            "type": "aws-sam",
+            "request": "direct-invoke",
+            "name": "VehicleManagementAPI:VehicleManagementAPI::VehicleManagementAPI.API.v1.VehiclesController::Get (dotnetcore3.1)",
+            "invokeTarget": {
+                "target": "code",
+                "projectRoot": "VehicleManagementAPI",
+                "lambdaHandler": "VehicleManagementAPI::VehicleManagementAPI.API.v1.VehiclesController::Get"
+            },
+            "lambda": {
+                "runtime": "dotnetcore3.1",
+                "payload": {},
+                "environmentVariables": {}
+            }
+        }
+    ]
+}

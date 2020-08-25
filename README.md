@@ -21,6 +21,18 @@ Installation for other OS can be found in the documentation link below:
 [macOS](https://docs.microsoft.com/en-us/dotnet/core/install/macos)
 [Linux](https://docs.microsoft.com/en-us/dotnet/core/install/linux)
 
+## Tooling Decision
+
+### Why .NET Core?
+
+According to [Thoughtwork](https://www.thoughtworks.com/radar/platforms/net-core), .NET core should be the default for building .NET project.
+
+### Why ApiBoilerPlate.AspNetCore boilerplate?
+
+The boilerplate was used to help me quickly scalfold a solution since I went from learning C# syntax, to learning Object-oriented programming, to learning the differences between abstract class / interface (contract), to learning to design a REST API in a few days.
+
+The boilerplate helps me understand how people set up a logger, CORS, Unit Tests, Model/Entity, Controller, api documentation, etc for ASP.NET.
+
 ## Editor
 
 If you are using VSCode, install the following extension:
