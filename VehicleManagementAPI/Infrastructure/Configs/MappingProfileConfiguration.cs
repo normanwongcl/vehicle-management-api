@@ -13,7 +13,9 @@ namespace VehicleManagementAPI.Infrastructure.Configs
             CreateMap<Person, CreatePersonRequest>().ReverseMap();
             CreateMap<Person, UpdatePersonRequest>().ReverseMap();
             CreateMap<Person, PersonQueryResponse>().ReverseMap();
-            CreateMap<VehicleBase, VehicleQueryResponse>().ReverseMap();
+            CreateMap<Vehicle, CreateVehicleRequest>().ReverseMap();
+            CreateMap<Vehicle, VehicleQueryResponse>().ReverseMap();
+
         }
     }
 }

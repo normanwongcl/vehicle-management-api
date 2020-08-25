@@ -59,7 +59,7 @@ namespace VehicleManagementAPI
             app.UseSwagger();
             app.UseSwaggerUI(c =>
             {
-                c.SwaggerEndpoint("/swagger/v1/swagger.json", "VehicleManagementAPI ASP.NET Core API v1");
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "VehicleManagementAPI v1");
             });
 
             //Enable HealthChecks and UI

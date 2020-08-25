@@ -39,5 +39,15 @@ namespace VehicleManagementAPI.API.v1
 
             return vehicles;
         }
+        [HttpPost]
+        [ProducesResponseType(typeof(ApiResponse), Status201Created)]
+        [ProducesResponseType(typeof(ApiResponse), Status422UnprocessableEntity)]
+        public async Task<ApiResponse> Post([FromBody] CreateVehicleRequest createRequest)
+        {
+            if (!ModelState.IsValid) { throw new ApiProblemDetailsException(ModelState); }
+
+            var vehicle = _mapper.Map<Vehicle>(createRequest);
+            return new ApiResponse("Record successfully created.", await _vehicleManager.CreateAsync(vehicle), Status201Created);
+        }
     }
 }

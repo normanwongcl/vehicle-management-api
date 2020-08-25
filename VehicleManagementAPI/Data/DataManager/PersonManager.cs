@@ -65,7 +65,7 @@ namespace VehicleManagementAPI.Data.DataManager
         }
         public async Task<IEnumerable<Person>> GetAllAsync()
         {
-            return await DbQueryAsync<Person>("SELECT * FROM Person");
+            return await DbQueryAsync<Person>("SELECT * FROM person");
         }
 
         public async Task<Person> GetByIdAsync(object id)
@@ -122,7 +122,7 @@ namespace VehicleManagementAPI.Data.DataManager
 
                     await transaction.CommitAsync();
                 }
-                catch(Exception ex)
+                catch (Exception ex)
                 {
                     //Rollback the Transaction when any query fails
                     transaction.Rollback();

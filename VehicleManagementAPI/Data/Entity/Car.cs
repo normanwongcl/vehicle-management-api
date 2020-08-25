@@ -2,7 +2,7 @@ using System;
 
 namespace VehicleManagementAPI.Data.Entity
 {
-    public class Car : VehicleBase
+    public class Car : Vehicle
     {
         public Type BodyType
         {

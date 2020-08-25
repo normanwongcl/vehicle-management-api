@@ -5,9 +5,8 @@ using System.Threading.Tasks;
 
 namespace VehicleManagementAPI.Contracts
 {
-    public interface IVehicleManager : IRepository<VehicleBase>
+    public interface IVehicleManager : IRepository<Vehicle>
     {
-        Task<(IEnumerable<VehicleBase> VehicleBase, Pagination Pagination)> GetPersonsAsync(UrlQueryParameters urlQueryParameters);
 
         //Add more class specific methods here when neccessary
     }

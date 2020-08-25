@@ -1,13 +1,15 @@
 using System;
+using System.Collections.Generic;
 
 namespace VehicleManagementAPI.Data.Entity
 {
-    public class VehicleBase : EntityBase
+    public class Vehicle : EntityBase
     {
         public long Id { get; set; }
         public string Make { get; set; }
         public string Model { get; set; }
         public double Price { get; set; }
-
     }
+
+
 }

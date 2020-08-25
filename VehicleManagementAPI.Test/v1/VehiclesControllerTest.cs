@@ -33,18 +33,27 @@ namespace VehicleManagementAPI.Test.v1
 
             _controller = new VehiclesController(_mockDataManager.Object, mapper, logger);
         }
-        private IEnumerable<VehicleBase> GetFakeVehicleLists()
+        private CreateVehicleRequest FakeCreateRequestObject()
         {
-            return new List<VehicleBase>
+            return new CreateVehicleRequest()
+            {
+                Make = "Toyota",
+                Model = "Camry",
+                Price = 100.00
+            };
+        }
+        private IEnumerable<Vehicle> GetFakeVehicleLists()
+        {
+            return new List<Vehicle>
                 {
-                    new VehicleBase()
+                    new Vehicle()
                     {
                         Id = 1,
                         Make = "Toyota",
                         Model = "Camry",
                         Price = 100.00
                     },
-                    new VehicleBase()
+                    new Vehicle()
                     {
                         Id = 2,
                         Make = "Toyota",
@@ -70,5 +79,19 @@ namespace VehicleManagementAPI.Test.v1
             var vehicles = Assert.IsType<List<VehicleQueryResponse>>(result);
             Assert.Equal(2, vehicles.Count);
         }
+
+        [Fact]
+        public async Task POST_Create_RETURNS_OK()
+        {
+
+            _mockDataManager.Setup(manager => manager.CreateAsync(It.IsAny<Vehicle>()))
+                .ReturnsAsync(It.IsAny<long>());
+
+            var person = await _controller.Post(FakeCreateRequestObject());
+
+            var response = Assert.IsType<ApiResponse>(person);
+            Assert.Equal(201, response.StatusCode);
+        }
     }
+
 }

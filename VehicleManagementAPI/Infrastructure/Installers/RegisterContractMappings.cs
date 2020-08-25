@@ -11,6 +11,7 @@ namespace VehicleManagementAPI.Infrastructure.Installers
         {
             //Register Interface Mappings for Repositories
             services.AddTransient<IPersonManager, PersonManager>();
+            services.AddTransient<IVehicleManager, VehicleManager>();
         }
     }
 }

@@ -7,12 +7,14 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace VehicleManagementAPI.Infrastructure.Installers
 {
-    internal class RegisterModelValidators: IServiceRegistration
+    internal class RegisterModelValidators : IServiceRegistration
     {
         public void RegisterAppServices(IServiceCollection services, IConfiguration configuration)
         {
             //Register DTO Validators
             services.AddTransient<IValidator<CreatePersonRequest>, CreatePersonRequestValidator>();
+            services.AddTransient<IValidator<CreateVehicleRequest>, CreateVehicleRequestValidator>();
+
             services.AddTransient<IValidator<UpdatePersonRequest>, UpdatePersonRequestValidator>();
 
             //Disable Automatic Model State Validation built-in to ASP.NET Core
