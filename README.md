@@ -33,15 +33,9 @@ The boilerplate was used to help me quickly scalfold a solution since I went fro
 
 The boilerplate helps me understand how people set up a logger, CORS, Unit Tests, Model/Entity, Controller, api documentation, etc for ASP.NET.
 
-## Editor
+### All design decision can be found in documentation link below
 
-If you are using VSCode, install the following extension:
-
-```yaml
-C#: 1.23.0 or higher
-vscode-solution-explorer: 0.3.0 or higher
-k--kato.docomment: 0.1.18 or higher
-```
+[Documentation]()
 
 ## Install
 
@@ -52,20 +46,37 @@ git clone git@github.com:normanwongcl/vehicle-management-api.git
 # Restore dependencies
 dotnet restore
 
-# Run project
-TODO
 ```
+
+## Set up a test database
+
+1. Open Visual Studio 2019
+2. Go to `View` > `SQL Server Object Explorer`
+3. Drilldown to `SQL Server` > `(localdb)\MSSQLLocalDB`
+4. Right-click "`Database`" Folder
+5. Click "`Add New Database`"
+6. Name it as "`TestDB`" and click OK
+7. Right-click on the "`TestDB`" database and then select "`New Query`"
+8. Run this [sql script](TestDB.sql)
 
 ## Test
 
-Run test by using the dotnet cli
+Run test by using the dotnet cli or in Visual Studio 2019
 
 ```
+
 dotnet test
+
 ```
 
 ## Deployment
 
 ```
+
 # TODO
+
+```
+
+```
+
 ```

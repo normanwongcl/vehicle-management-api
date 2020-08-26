@@ -39,6 +39,17 @@ namespace VehicleManagementAPI.API.v1
 
             return vehicles;
         }
+
+        [Route("{id:long}")]
+        [HttpGet]
+        [ProducesResponseType(typeof(PersonQueryResponse), Status200OK)]
+        [ProducesResponseType(typeof(PersonQueryResponse), Status404NotFound)]
+        public async Task<VehicleQueryResponse> Get(long id)
+        {
+            var vehicle = await _vehicleManager.GetByIdAsync(id);
+            return vehicle != null ? _mapper.Map<VehicleQueryResponse>(vehicle)
+                                  : throw new ApiProblemDetailsException($"Record with id: {id} does not exist.", Status404NotFound);
+        }
         [HttpPost]
         [ProducesResponseType(typeof(ApiResponse), Status201Created)]
         [ProducesResponseType(typeof(ApiResponse), Status422UnprocessableEntity)]

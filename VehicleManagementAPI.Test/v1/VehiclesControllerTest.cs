@@ -51,14 +51,24 @@ namespace VehicleManagementAPI.Test.v1
                         Id = 1,
                         Make = "Toyota",
                         Model = "Camry",
-                        Price = 100.00
+                        Price = 100.00,
+                        VehicleType = new VehicleType()
+                        {
+                            Id = 1,
+                            VehicleName = "Car"
+                        }
                     },
                     new Vehicle()
                     {
                         Id = 2,
                         Make = "Toyota",
                         Model = "Camry",
-                        Price = 100.00
+                        Price = 100.00,
+                        VehicleType = new VehicleType()
+                        {
+                            Id = 2,
+                            VehicleName = "Car"
+                        }
                     }
                 };
         }
@@ -78,6 +88,18 @@ namespace VehicleManagementAPI.Test.v1
             // Assert
             var vehicles = Assert.IsType<List<VehicleQueryResponse>>(result);
             Assert.Equal(2, vehicles.Count);
+        }
+
+        [Fact]
+        public async Task GET_ById_RETURNS_OK()
+        {
+            long id = 1;
+
+            _mockDataManager.Setup(manager => manager.GetByIdAsync(id))
+               .ReturnsAsync(GetFakeVehicleLists().Single(p => p.Id.Equals(id)));
+
+            var vehicle = await _controller.Get(id);
+            Assert.IsType<PersonQueryResponse>(vehicle);
         }
 
         [Fact]
