@@ -60,5 +60,21 @@ namespace VehicleManagementAPI.API.v1
             var vehicle = _mapper.Map<Vehicle>(createRequest);
             return new ApiResponse("Record successfully created.", await _vehicleManager.CreateAsync(vehicle), Status201Created);
         }
+
+        [Route("{id:long}")]
+        [HttpDelete]
+        [ProducesResponseType(typeof(ApiResponse), Status200OK)]
+        [ProducesResponseType(typeof(ApiResponse), Status404NotFound)]
+        public async Task<ApiResponse> Delete(long id)
+        {
+            if (await _vehicleManager.DeleteAsync(id))
+            {
+                return new ApiResponse($"Record with Id: {id} sucessfully deleted.", true);
+            }
+            else
+            {
+                throw new ApiProblemDetailsException($"Record with id: {id} does not exist.", Status404NotFound);
+            }
+        }
     }
 }

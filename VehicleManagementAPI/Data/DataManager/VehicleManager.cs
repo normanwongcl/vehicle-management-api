@@ -40,7 +40,7 @@ namespace VehicleManagementAPI.Data.DataManager
         public async Task<bool> UpdateAsync(Vehicle vehicle)
         {
             string sqlQuery = $@"IF EXISTS (SELECT 1 FROM Vehicle WHERE ID = @ID) 
-                                            UPDATE Person SET FirstName = @FirstName, LastName = @LastName, DateOfBirth = @DateOfBirth
+                                            UPDATE Vehicle SET FirstName = @FirstName, LastName = @LastName, DateOfBirth = @DateOfBirth
                                             WHERE ID = @ID";
 
             return await DbExecuteAsync<bool>(sqlQuery, vehicle);
@@ -48,7 +48,7 @@ namespace VehicleManagementAPI.Data.DataManager
         public async Task<bool> DeleteAsync(object id)
         {
             string sqlQuery = $@"IF EXISTS (SELECT 1 FROM Vehicle WHERE ID = @ID)
-                                        DELETE Person WHERE ID = @ID";
+                                        DELETE Vehicle WHERE ID = @ID";
 
             return await DbExecuteAsync<bool>(sqlQuery, new { id });
         }

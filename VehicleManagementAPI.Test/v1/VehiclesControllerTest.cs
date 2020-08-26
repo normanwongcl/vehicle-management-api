@@ -99,7 +99,7 @@ namespace VehicleManagementAPI.Test.v1
                .ReturnsAsync(GetFakeVehicleLists().Single(p => p.Id.Equals(id)));
 
             var vehicle = await _controller.Get(id);
-            Assert.IsType<PersonQueryResponse>(vehicle);
+            Assert.IsType<VehicleQueryResponse>(vehicle);
         }
 
         [Fact]
@@ -109,10 +109,42 @@ namespace VehicleManagementAPI.Test.v1
             _mockDataManager.Setup(manager => manager.CreateAsync(It.IsAny<Vehicle>()))
                 .ReturnsAsync(It.IsAny<long>());
 
-            var person = await _controller.Post(FakeCreateRequestObject());
+            var vehicle = await _controller.Post(FakeCreateRequestObject());
 
-            var response = Assert.IsType<ApiResponse>(person);
+            var response = Assert.IsType<ApiResponse>(vehicle);
             Assert.Equal(201, response.StatusCode);
+        }
+
+        [Fact]
+        public async Task DELETE_ById_RETURNS_OK()
+        {
+            long id = 1;
+
+            _mockDataManager.Setup(manager => manager.DeleteAsync(id))
+                 .ReturnsAsync(true);
+
+            var result = await _controller.Delete(id);
+
+            var response = Assert.IsType<ApiResponse>(result);
+            Assert.Equal(200, response.StatusCode);
+        }
+
+        [Fact]
+        public async Task DELETE_ById_RETURNS_NOTFOUND()
+        {
+            var apiException = await Assert.ThrowsAsync<ApiProblemDetailsException>(() => _controller.Delete(1));
+            Assert.Equal(404, apiException.StatusCode);
+        }
+
+        [Fact]
+        public async Task DELETE_ById_RETURNS_SERVERERROR()
+        {
+            long id = 1;
+
+            _mockDataManager.Setup(manager => manager.DeleteAsync(id))
+                .Throws(new Exception());
+
+            await Assert.ThrowsAsync<Exception>(() => _controller.Delete(id));
         }
     }
 
