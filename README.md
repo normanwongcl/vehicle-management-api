@@ -25,7 +25,7 @@ Installation for other OS can be found in the documentation link below:
 
 ### All design decision can be found in documentation link below
 
-[Documentation]()
+[Documentation](https://github.com/normanwongcl/vehicle-management-api/blob/master/Documentation/)
 
 ## Install
 
@@ -47,16 +47,14 @@ dotnet restore
 5. Click "`Add New Database`"
 6. Name it as "`TestDB`" and click OK
 7. Right-click on the "`TestDB`" database and then select "`New Query`"
-8. Run this [sql script](TestDB.sql)
+8. Run this [sql script](https://github.com/normanwongcl/vehicle-management-api/blob/master/Documentation/Database%20Design/TestDB.sql)
 
 ## Test
 
 Run test by using the dotnet cli or in Visual Studio 2019
 
 ```
-
 dotnet test
-
 ```
 
 ## Project Structure
