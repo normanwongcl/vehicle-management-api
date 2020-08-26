@@ -3,6 +3,7 @@
 Vehicle Management API build using [ApiBoilerPlate.AspNetCore](https://github.com/proudmonkey/ApiBoilerPlate) project template.
 
 ## Requirements
+[Tasks requirements](https://github.com/normanwongcl/vehicle-management-api/blob/master/Documentation/)
 
 ## Prerequisite
 
