@@ -18,7 +18,7 @@ namespace VehicleManagementAPI.Infrastructure.Extensions
             => int.TryParse(value, out var result) ? result : default;
 
         public static int? ToNullableInt32(this string value)
-            => !string.IsNullOrEmpty(value) ? value.ToInt32() : (int?) null;
+            => !string.IsNullOrEmpty(value) ? value.ToInt32() : (int?)null;
 
         public static long ToInt64(this string value)
             => long.TryParse(value, out var result) ? result : default;

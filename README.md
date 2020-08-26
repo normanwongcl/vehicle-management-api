@@ -2,6 +2,8 @@
 
 Vehicle Management API build using [ApiBoilerPlate.AspNetCore](https://github.com/proudmonkey/ApiBoilerPlate) project template.
 
+## Requirements
+
 ## Prerequisite
 
 ```yaml
@@ -20,18 +22,6 @@ Installation for other OS can be found in the documentation link below:
 [Windows](https://docs.microsoft.com/en-us/dotnet/core/install/windows?tabs=netcore31)
 [macOS](https://docs.microsoft.com/en-us/dotnet/core/install/macos)
 [Linux](https://docs.microsoft.com/en-us/dotnet/core/install/linux)
-
-## Tooling Decision
-
-### Why .NET Core?
-
-According to [Thoughtwork](https://www.thoughtworks.com/radar/platforms/net-core), .NET core should be the default for building .NET project.
-
-### Why ApiBoilerPlate.AspNetCore boilerplate?
-
-The boilerplate was used to help me quickly scalfold a solution since I went from learning C# syntax, to learning Object-oriented programming, to learning the differences between abstract class / interface (contract), to learning to design a REST API in a few days.
-
-The boilerplate helps me understand how people set up a logger, CORS, Unit Tests, Model/Entity, Controller, api documentation, etc for ASP.NET.
 
 ### All design decision can be found in documentation link below
 
@@ -69,6 +59,13 @@ dotnet test
 
 ```
 
+## Project Structure
+
+Explanation of each folders can be found in the articles below:
+
+- https://vmsdurano.com/apiboilerplate-a-project-template-for-building-asp-net-core-apis/
+- https://vmsdurano.com/apiboilerplate-new-features-and-improvements-for-building-asp-net-core-3-apis/
+
 ## Deployment
 
 ```
@@ -77,6 +74,14 @@ dotnet test
 
 ```
 
-```
+## Tooling Decision
 
-```
+### Why .NET Core?
+
+According to [Thoughtwork](https://www.thoughtworks.com/radar/platforms/net-core), .NET core should be the default for building .NET project.
+
+### Why ApiBoilerPlate.AspNetCore boilerplate?
+
+The boilerplate was used to help me quickly scalfold a solution since I went from learning C# syntax, to learning Object-oriented programming, to learning the differences between abstract class / interface (contract), to learning to design a REST API in a few days.
+
+The boilerplate helps me understand how people set up a logger, CORS, Unit Tests, Model/Entity, Controller, api documentation, etc for ASP.NET.
