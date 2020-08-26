@@ -128,9 +128,9 @@ namespace VehicleManagementAPI.Test.v1
             _mockDataManager.Setup(manager => manager.UpdateAsync(It.IsAny<Vehicle>()))
                  .ReturnsAsync(true);
 
-            var person = await _controller.Put(1, FakeUpdateRequestObject());
+            var vehicle = await _controller.Put(1, FakeUpdateRequestObject());
 
-            var response = Assert.IsType<ApiResponse>(person);
+            var response = Assert.IsType<ApiResponse>(vehicle);
             Assert.Equal(200, response.StatusCode);
         }
 
