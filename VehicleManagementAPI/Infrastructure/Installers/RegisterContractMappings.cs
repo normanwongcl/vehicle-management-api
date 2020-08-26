@@ -10,7 +10,6 @@ namespace VehicleManagementAPI.Infrastructure.Installers
         public void RegisterAppServices(IServiceCollection services, IConfiguration config)
         {
             //Register Interface Mappings for Repositories
-            services.AddTransient<IPersonManager, PersonManager>();
             services.AddTransient<IVehicleManager, VehicleManager>();
         }
     }

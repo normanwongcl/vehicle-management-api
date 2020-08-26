@@ -10,10 +10,8 @@ namespace VehicleManagementAPI.Infrastructure.Configs
     {
         public MappingProfileConfiguration()
         {
-            CreateMap<Person, CreatePersonRequest>().ReverseMap();
-            CreateMap<Person, UpdatePersonRequest>().ReverseMap();
-            CreateMap<Person, PersonQueryResponse>().ReverseMap();
             CreateMap<Vehicle, CreateVehicleRequest>().ReverseMap();
+            CreateMap<Vehicle, UpdateVehicleRequest>().ReverseMap();
             CreateMap<Vehicle, VehicleQueryResponse>().ReverseMap();
 
         }
