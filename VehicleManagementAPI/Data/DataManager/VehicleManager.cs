@@ -40,7 +40,7 @@ namespace VehicleManagementAPI.Data.DataManager
         public async Task<bool> UpdateAsync(Vehicle vehicle)
         {
             string sqlQuery = $@"IF EXISTS (SELECT 1 FROM Vehicle WHERE ID = @ID) 
-                                            UPDATE Vehicle SET FirstName = @FirstName, LastName = @LastName, DateOfBirth = @DateOfBirth
+                                            UPDATE Vehicle SET Make = @Make, Model = @Model, Price = @Price
                                             WHERE ID = @ID";
 
             return await DbExecuteAsync<bool>(sqlQuery, vehicle);

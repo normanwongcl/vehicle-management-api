@@ -16,6 +16,7 @@ namespace VehicleManagementAPI.Infrastructure.Installers
             services.AddTransient<IValidator<CreateVehicleRequest>, CreateVehicleRequestValidator>();
 
             services.AddTransient<IValidator<UpdatePersonRequest>, UpdatePersonRequestValidator>();
+            services.AddTransient<IValidator<UpdateVehicleRequest>, UpdateVehicleRequestValidator>();
 
             //Disable Automatic Model State Validation built-in to ASP.NET Core
             services.Configure<ApiBehaviorOptions>(opt => { opt.SuppressModelStateInvalidFilter = true; });

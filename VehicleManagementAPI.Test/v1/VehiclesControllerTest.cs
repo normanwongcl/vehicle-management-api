@@ -73,7 +73,15 @@ namespace VehicleManagementAPI.Test.v1
                 };
         }
 
-
+        private UpdateVehicleRequest FakeUpdateRequestObject()
+        {
+            return new UpdateVehicleRequest()
+            {
+                Make = "Toyota",
+                Model = "Camry",
+                Price = 100.00,
+            };
+        }
         [Fact]
         public async Task GET_All_RETURNS_OK()
         {
@@ -114,7 +122,43 @@ namespace VehicleManagementAPI.Test.v1
             var response = Assert.IsType<ApiResponse>(vehicle);
             Assert.Equal(201, response.StatusCode);
         }
+        [Fact]
+        public async Task PUT_ById_RETURNS_OK()
+        {
+            _mockDataManager.Setup(manager => manager.UpdateAsync(It.IsAny<Vehicle>()))
+                 .ReturnsAsync(true);
 
+            var person = await _controller.Put(1, FakeUpdateRequestObject());
+
+            var response = Assert.IsType<ApiResponse>(person);
+            Assert.Equal(200, response.StatusCode);
+        }
+
+        [Fact]
+        public async Task PUT_ById_RETURNS_NOTFOUND()
+        {
+            var apiException = await Assert.ThrowsAsync<ApiProblemDetailsException>(() => _controller.Put(10, FakeUpdateRequestObject()));
+            Assert.Equal(404, apiException.StatusCode);
+        }
+
+        [Fact]
+        public async Task PUT_ById_RETURNS_BADREQUEST()
+        {
+            _controller.ModelState.AddModelError("DateOfBirth", "Required");
+
+            var apiException = await Assert.ThrowsAsync<ApiProblemDetailsException>(() => _controller.Put(10, FakeUpdateRequestObject()));
+            Assert.Equal(422, apiException.StatusCode);
+        }
+
+        [Fact]
+        public async Task PUT_ById_RETURNS_SERVERERROR()
+        {
+
+            _mockDataManager.Setup(manager => manager.UpdateAsync(It.IsAny<Vehicle>()))
+                .Throws(new Exception());
+
+            await Assert.ThrowsAsync<Exception>(() => _controller.Put(10, FakeUpdateRequestObject()));
+        }
         [Fact]
         public async Task DELETE_ById_RETURNS_OK()
         {

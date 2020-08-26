@@ -62,6 +62,27 @@ namespace VehicleManagementAPI.API.v1
         }
 
         [Route("{id:long}")]
+        [HttpPut]
+        [ProducesResponseType(typeof(ApiResponse), Status200OK)]
+        [ProducesResponseType(typeof(ApiResponse), Status404NotFound)]
+        [ProducesResponseType(typeof(ApiResponse), Status422UnprocessableEntity)]
+        public async Task<ApiResponse> Put(long id, [FromBody] UpdateVehicleRequest updateRequest)
+        {
+            if (!ModelState.IsValid) { throw new ApiProblemDetailsException(ModelState); }
+
+            var vehicle = _mapper.Map<Vehicle>(updateRequest);
+            vehicle.Id = id;
+
+            if (await _vehicleManager.UpdateAsync(vehicle))
+            {
+                return new ApiResponse($"Record with Id: {id} sucessfully updated.", true);
+            }
+            else
+            {
+                throw new ApiProblemDetailsException($"Record with Id: {id} does not exist.", Status404NotFound);
+            }
+        }
+        [Route("{id:long}")]
         [HttpDelete]
         [ProducesResponseType(typeof(ApiResponse), Status200OK)]
         [ProducesResponseType(typeof(ApiResponse), Status404NotFound)]
