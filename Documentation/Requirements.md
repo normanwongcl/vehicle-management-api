@@ -1,12 +1,12 @@
 # Requirements
 
-## Task 1
+## Task 1 :heavy_check_mark:
 
 Design a vehicle management API that for MVP will only cater for cars, but in the future will manage other vehicle types like boats, bikes, caravans etc.
 
 API should expose endpoints to list vehicles, add new vehicle, delete vehicle and update vehicle.
 
-## Task 2
+## Task 2 :x:
 
 Build a simple console application that uses the API above to generate hourly report.
 

@@ -3,13 +3,21 @@
 ## Plan out Todolist at the start
 
 :heavy_check_mark: learn how to set up vscode for dotnet core
+
 :heavy_check_mark: learn c# syntax
+
 :heavy_check_mark: relearn object-orieted programming concept
+
 :heavy_check_mark: learn the differences between interface and abstract class
+
 :heavy_check_mark: learn how to design a rest api
+
 :heavy_check_mark: learn how to write tests
+
 :x: learn how to set up CI for dot net core project
+
 :x: learn how to document api
+
 :x: learn to build a cron job console application in dotnet core
 
 ## Make a draft for working with Task 1
